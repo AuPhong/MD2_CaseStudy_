@@ -46,14 +46,14 @@ public class AdminReceiptManage {
         List<Receipt> receiptList = new ConfigReadAndWrite<Receipt>().readFromFile(RECEIPTPATH);
         String dateRegex = "\\d{2}\\s\\d{1,2}\\s\\d{4}";
         String ageRegex = "\\d{1,3}";
-        System.out.println("==============Receipt manage==============");
-        System.out.println("1. Show receipt list");
-        System.out.println("2. Add receipt");
-        System.out.println("3. Edit receipt by ID");
-        System.out.println("4. Find receipt by ID");
-        System.out.println("5. Delete receipt");
-        System.out.println("6. Calculate total income by time");
-        System.out.println("0. Comeback menu");
+        System.out.println("==============RECEIPT MANAGE==============");
+        System.out.println("1. SHOW RECEIPT LIST");
+        System.out.println("2. ADD RECEIPT");
+        System.out.println("3. EDIT RECEIPT BY ID");
+        System.out.println("4. FIND RECEIPT BY ID");
+        System.out.println("5. DELETE RECEIPT");
+        System.out.println("6. CALCULATE INCOME BY TIME");
+        System.out.println("0. BACK TO MENU");
         System.out.println("==========================================");
 
         int choose = sc.nextInt();
@@ -284,6 +284,7 @@ public class AdminReceiptManage {
                     }
                 }
             case 4:
+                System.out.println("Enter receipt's id to search: ");
                 int id1 = sc.nextInt();
                 sc.nextLine();
                 Receipt receipt = new ReceiptController().findById(id1);

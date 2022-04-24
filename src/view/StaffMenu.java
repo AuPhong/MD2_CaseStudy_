@@ -7,10 +7,10 @@ public class StaffMenu {
     public StaffMenu() throws ParseException {
         Scanner sc = new Scanner(System.in);
         System.out.println("====================STAFF MENU====================");
-        System.out.println("1. Account");
-        System.out.println("2. Manage room");
-        System.out.println("3. Manage receipt");
-        System.out.println("4. Logout");
+        System.out.println("1. ACCOUNT");
+        System.out.println("2. MANAGE ROOOM");
+        System.out.println("3. MANAGE RECEIPT");
+        System.out.println("4. LOGOUT");
         System.out.println("==================================================");
         int choose = sc.nextInt();
         switch (choose) {

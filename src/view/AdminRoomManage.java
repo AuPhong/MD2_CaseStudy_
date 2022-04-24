@@ -28,14 +28,14 @@ public class AdminRoomManage {
     public AdminRoomManage() throws ParseException {
         Scanner sc = new Scanner(System.in);
         System.out.println("================Room manage================");
-        System.out.println("1. Show roomlist");
-        System.out.println("2. Add room");
-        System.out.println("3. Edit room");
-        System.out.println("4. Show available rooms");
-        System.out.println("5. Find room by price range");
-        System.out.println("6. Find room by Id");
-        System.out.println("7. Delete room");
-        System.out.println("0. Come back to menu");
+        System.out.println("1. SHOW ROOM'S LIST");
+        System.out.println("2. ADD ROOM");
+        System.out.println("3. EDIT ROOM");
+        System.out.println("4. SHOW AVAILABLE ROOM");
+        System.out.println("5. FIND ROOM BY PRICE RANGE");
+        System.out.println("6. FIND ROOM BY ID");
+        System.out.println("7. DELETE ROOOM");
+        System.out.println("0. BACK TO MENU");
         System.out.println("===========================================");
 
         int choose = sc.nextInt();

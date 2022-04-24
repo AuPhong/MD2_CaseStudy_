@@ -36,23 +36,23 @@ public class StaffReceiptManage {
         String phonenumberRegex = "^0[0-9]{8,9}$";
         SimpleDateFormat myFormat = new SimpleDateFormat("dd MM yyyy");
         Scanner sc = new Scanner(System.in);
-        String RECEIPTPATH = "data/receiptData.txt";
+        String RECEIPTPATH = "src/data/receiptData.txt";
         List<Receipt> receiptList = new ConfigReadAndWrite<Receipt>().readFromFile(RECEIPTPATH);
         String dateRegex = "\\d{2}\\s\\d{1,2}\\s\\d{4}";
         String ageRegex = "\\d{1,3}";
-        System.out.println("==============Receipt manage==============");
-        System.out.println("1. Show your receipt list");
-        System.out.println("2. Add receipt");
-        System.out.println("3. Edit your receipt list");
-        System.out.println("4. Find receipt by ID");
-        System.out.println("0. Comeback menu");
+        System.out.println("==============RECEIPT MANAGE==============");
+        System.out.println("1. SHOW YOUR RECEIPT MANAGE");
+        System.out.println("2. ADD RECEIPT");
+        System.out.println("3. EDIT YOUR RECEIPT LIST");
+        //System.out.println("4. Find receipt by ID");
+        System.out.println("0. BACK TO MENU");
         System.out.println("==========================================");
         int choose = sc.nextInt();
         sc.nextLine();
         switch (choose) {
             case 1:
                 ArrayList<Room> arrayList = new ArrayList<>();
-                User loginUser = new ConfigLogin().readFromFile("data/userLoginData.txt");
+                User loginUser = new ConfigLogin().readFromFile("src/data/userLoginData.txt");
                 List<Receipt> receipts = new ArrayList<>();
                 if (receiptList.equals(arrayList)) {
                     System.err.println("There is no receipt data!");
@@ -73,10 +73,10 @@ public class StaffReceiptManage {
                     backToMenu();
                 } else {
                     int id = 0;
-                    if (receiptList.size() == 0) {
+                    if (new ReceiptServiceIMPL().findAll().size() == 0) {
                         id = 1;
                     } else {
-                        id = receiptList.get(receiptList.size() - 1).getReceiptId() + 1;
+                        id = new ReceiptServiceIMPL().findAll().get(new ReceiptServiceIMPL().findAll().size() - 1).getReceiptId() + 1;
                     }
                     System.out.println("Enter customer information. ");
                     System.out.println("Enter customer's name: ");

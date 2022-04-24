@@ -16,8 +16,8 @@ public class Main {
         new ConfigLogin().writeToFile(LOGINPATH,null);
         System.out.println("=================HOTEL MANAGEMENT=================");
         Scanner sc = new Scanner(System.in);
-        System.out.println("1. Register");
-        System.out.println("2. Login");
+        System.out.println("1. REGISTER");
+        System.out.println("2. LOGIN");
         System.out.println("==================================================");
         int choose = sc.nextInt();
         switch (choose){

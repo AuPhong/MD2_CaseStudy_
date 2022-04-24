@@ -21,13 +21,13 @@ public class AdminAccount {
     }
     public AdminAccount() throws ParseException {
         Scanner sc = new Scanner(System.in);
-        System.out.println("===============Account manage===============");
-        System.out.println("1. Show your info");
-        System.out.println("2. Edit your info");
-        System.out.println("3. Show user list");
-        System.out.println("4. Edit user list");
-        System.out.println("5. Delete user");
-        System.out.println("0. Comeback menu");
+        System.out.println("===============ACCOUNT MANAGE===============");
+        System.out.println("1. SHOW YOUR INFO");
+        System.out.println("2. EDIT YOUR INFO");
+        System.out.println("3. SHOW USER DATA");
+        System.out.println("4. EDIT USER DATA");
+        System.out.println("5. DELETE USER");
+        System.out.println("0. BACK TO MENU");
         System.out.println("============================================");
 
         //System.out.println("7. Logout");

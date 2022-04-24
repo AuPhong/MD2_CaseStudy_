@@ -45,7 +45,7 @@ public class Account {
         String phonenumberRegex = "^0[0-9]{8,9}$";
         String passwordRegex = "^[A-Za-z0-9]{8,16}$";
 
-        System.out.println("Enter username:");
+        System.out.println("Enter username (8-16 characters):");
         String username;
         boolean checkUsernameRegex;
         while (true) {
@@ -59,7 +59,7 @@ public class Account {
             }
         }
 
-        System.out.println("Enter password");
+        System.out.println("Enter password (8-16 characters):");
         String password;
         boolean checkPasswordRegex;
         while (true) {
@@ -71,7 +71,7 @@ public class Account {
                 System.err.println("Wrong password pattern, enter again: ");
             }
         }
-        System.out.println("Enter email");
+        System.out.println("Enter email (abc@def.xyz):");
         String email;
         boolean checkEmailRegex;
         while (true) {
@@ -84,7 +84,7 @@ public class Account {
             }
         }
 
-        System.out.println("Enter phonenumber");
+        System.out.println("Enter phonenumber (0xxxxxxxxx):");
         String phonenumber;
         boolean checkPhonenumberRegex;
         while (true) {
@@ -139,11 +139,9 @@ public class Account {
                     } else if (user.getRole() == Role.STAFF) {
                         new StaffMenu();
                     }
-
                 }
             }
         }
-
     }
 
     public void Logout() throws ParseException {

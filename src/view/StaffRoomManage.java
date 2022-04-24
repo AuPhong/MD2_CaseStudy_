@@ -24,12 +24,12 @@ public class StaffRoomManage {
 
     public StaffRoomManage() throws ParseException {
         Scanner sc = new Scanner(System.in);
-        System.out.println("================Room manage================");
-        System.out.println("1. Show roomlist");
-        System.out.println("2. Show available rooms");
-        System.out.println("3. Find room by price range");
-        System.out.println("4. Find room by Id");
-        System.out.println("0. Come back to menu");
+        System.out.println("================ROOM MANAGE================");
+        System.out.println("1. SHOW ROOM LIST");
+        System.out.println("2. SHOW AVAILABLE ROOMS");
+        System.out.println("3. FIND ROOM BY PRICE RANGE");
+        System.out.println("4.FIND ROOM BY ID");
+        System.out.println("0. BACK TO MENU");
         System.out.println("===========================================");
         int choose = sc.nextInt();
         switch (choose) {
