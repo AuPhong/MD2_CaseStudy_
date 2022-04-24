@@ -156,7 +156,7 @@ public class AdminReceiptManage {
                     double totalPrice = days * room.getPrice();
                     Receipt receipt = new Receipt(id, customer, staff, room, checkIn, checkOut, totalPrice);
                     new ReceiptController().addReceipt(receipt);
-                    //new ReceiptController().setRoomStt();
+                    new ReceiptController().setRoomStt();
                     backToMenu();
                 }
 

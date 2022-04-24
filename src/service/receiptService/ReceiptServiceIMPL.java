@@ -8,6 +8,7 @@ import model.RoomStatus;
 
 import java.util.Date;
 import java.util.List;
+import java.util.concurrent.CopyOnWriteArrayList;
 
 public class ReceiptServiceIMPL implements IReceiptService {
     public static String ROOMPATH = "src/data/roomData.txt";
@@ -130,26 +131,28 @@ public class ReceiptServiceIMPL implements IReceiptService {
     }
 
     public void setRoomStt() {
+        List<Receipt> receiptList1 = new ConfigReadAndWrite<Receipt>().readFromFile("src/data/receiptData.txt");
+        List<Room> roomList1 = new ConfigReadAndWrite<Room>().readFromFile("src/data/roomData.txt");
         int roomId = 0;
         Date date = new Date();
-        for (int i = 0; i < receiptList.size(); i++) {
-            if (receiptList.get(i).getCheckOut().compareTo(date) >= 0 && receiptList.get(i).getCheckIn().compareTo(date) <= 0) {
-                roomId = receiptList.get(i).getRoom().getRoomId();
-                for (int j = 0; j < roomList.size(); j++) {
-                    if (roomId == roomList.get(j).getRoomId()) {
+        for (int i = 0; i < receiptList1.size(); i++) {
+            if (receiptList1.get(i).getCheckOut().compareTo(date) >= 0 && receiptList1.get(i).getCheckIn().compareTo(date) <= 0) {
+                roomId = receiptList1.get(i).getRoom().getRoomId();
+                for (int j = 0; j < roomList1.size(); j++) {
+                    if (roomId == roomList1.get(j).getRoomId()) {
                         //System.out.println("Change status " +roomList.get(j) +" to UNAVAILABLE");
-                        roomList.get(j).setRoomStatus(RoomStatus.UNAVAILABLE);
-                        configReadAndWriteRoom.writeToFile(ROOMPATH, roomList);
+                        roomList1.get(j).setRoomStatus(RoomStatus.UNAVAILABLE);
+                        configReadAndWriteRoom.writeToFile(ROOMPATH, roomList1);
                     }
                 }
             } else {
 
-                roomId = receiptList.get(i).getRoom().getRoomId();
-                for (int j = 0; j < roomList.size(); j++) {
-                    if (roomId == roomList.get(j).getRoomId()) {
+                roomId = receiptList1.get(i).getRoom().getRoomId();
+                for (int j = 0; j < roomList1.size(); j++) {
+                    if (roomId == roomList1.get(j).getRoomId()) {
                         //System.out.println("Change status " +roomList.get(j) +" to AVAILABLE");
-                        roomList.get(j).setRoomStatus(RoomStatus.AVAILABLE);
-                        configReadAndWriteRoom.writeToFile(ROOMPATH, roomList);
+                        roomList1.get(j).setRoomStatus(RoomStatus.AVAILABLE);
+                        configReadAndWriteRoom.writeToFile(ROOMPATH, roomList1);
                     }
                 }
             }

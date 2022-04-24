@@ -73,8 +73,8 @@ public class AdminRoomManage {
                 } else {
                     RoomStatus roomStatus1 = new RoomServiceIMPL().findById(editId).getRoomStatus();
                     System.out.println("Enter editing price: ");
-                    double editPrice = Double.parseDouble(sc.nextLine());
-//                    sc.nextLine();
+                    double editPrice = sc.nextDouble();
+                    sc.nextLine();
                     System.out.println("Enter number of bedrooms to edit: ");
                     int editNumBed = sc.nextInt();
                     sc.nextLine();
@@ -107,8 +107,14 @@ public class AdminRoomManage {
                 System.out.println("Enter room's id to delete: ");
                 int deleteId = sc.nextInt();
                 sc.nextLine();
-                new RoomController().deleteRoom(deleteId);
-                backToMenu();
+                if (new RoomServiceIMPL().findById(deleteId)==null){
+                    System.err.println("This room does not exist!");
+                    backToMenu();
+                }else {
+                    new RoomController().deleteRoom(deleteId);
+                    backToMenu();
+                }
+
             case 0:
                 new AdminMenu();
         }
